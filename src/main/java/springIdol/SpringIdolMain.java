@@ -23,6 +23,9 @@ public class SpringIdolMain {
 		System.out.println("--Jim perform--");
 		Performer jim = (Performer) ctx.getBean("jim");
 		jim.perform();
+		System.out.println("--Carl perform--");
+		Performer carl = (Performer) ctx.getBean("carl");
+		carl.perform();
 		((ClassPathXmlApplicationContext) ctx).close();
 
 	}

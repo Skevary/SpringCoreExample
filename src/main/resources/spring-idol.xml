@@ -38,12 +38,29 @@
 <bean id="jim" class="springIdol.OneManBandMap">
 	<property name="instruments">
 		<map>
-		<entry key="GUITAR" value-ref="guitar"/>
-		<entry key="SAXOPHONE" value-ref="saxophone"/>
-		<entry key="PIANO" value-ref="piano"/>
+			<entry key="GUITAR" value-ref="guitar"/>
+			<entry key="SAXOPHONE" value-ref="saxophone"/>
+			<entry key="PIANO" value-ref="piano"/>
 		</map>
+		<!--  
+		<props>
+			<prop key="GUITAR">STRUM STRUM STRUM</prop>
+ 			<prop key="SAXOPHONE">CRASH CRASH CRASH</prop>
+ 			<prop key="PIANO">HUM HUM HUM</prop>
+		</props>
+		 -->
 	</property>
 </bean>	
+
+<bean id="carl" class="springIdol.Instrumentalist">
+	<property name="song" value="#{kenny.song ?: 'Greensleeves'}"/>
+	<property name="instrument" value="#{kenny.getSong()=='Jingle Bells'?piano:saxophone}"/>
+	<!--
+	<property name="song" value="#{kenny.song}" /> 
+	<property name="instrument" value="#{songSelector.selectSong()=='Jingle Bells'?piano:saxophone}"/>
+	<property name="song" value="#{songSelector.selectSong()?.toUpperCase()}"/>
+	-->
+</bean>
 	
 <bean id="guitar" class="springIdol.Guitar"/>	
 	
