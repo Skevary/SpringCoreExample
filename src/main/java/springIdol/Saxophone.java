@@ -7,7 +7,7 @@ public class Saxophone implements Instrument {
 
 	@Override
 	public void play() {
-		System.out.println("(Saxophone) TOOT TOOT TOOT");
+		System.out.println("TOOT TOOT TOOT");
 	}
 
 }

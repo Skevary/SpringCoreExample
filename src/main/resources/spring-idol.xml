@@ -21,9 +21,35 @@
 </bean>
 
 <bean id="kenny" class="springIdol.Instrumentalist" 
-	p:song="Jingle Bells" p:instrument-ref="saxophone" />
+	p:song="Jingle Bells" p:instrument-ref="piano" />
+	
+<!-- List allows replays -->
+<bean id="hank" class="springIdol.OneManBand">
+	<property name="instruments">
+		<set>
+			<ref bean="guitar"/>
+			<ref bean="saxophone"/>
+			<ref bean="piano"/>
+			<ref bean="guitar"/>
+		</set>
+	</property>
+</bean>	
+
+<bean id="jim" class="springIdol.OneManBandMap">
+	<property name="instruments">
+		<map>
+		<entry key="GUITAR" value-ref="guitar"/>
+		<entry key="SAXOPHONE" value-ref="saxophone"/>
+		<entry key="PIANO" value-ref="piano"/>
+		</map>
+	</property>
+</bean>	
+	
+<bean id="guitar" class="springIdol.Guitar"/>	
 	
 <bean id="saxophone" class="springIdol.Saxophone" />
+
+<bean id="piano" class="springIdol.Piano" />
 
 <bean id="sonnet29" class="springIdol.Sonnet29"/>
 

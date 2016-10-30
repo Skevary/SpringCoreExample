@@ -2,6 +2,7 @@ package springIdol;
 
 /* This's Singleton class */
 public class Stage {
+	
 	private Stage() {
 	}
 
