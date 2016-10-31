@@ -2,6 +2,6 @@ package knights;
 
 public interface Quest {
 
-	void embark();
+	void embark() throws QuestException;
 
 }

@@ -2,10 +2,12 @@ package knights;
 
 public class Minstrel {
 
-	public void singleBeforeQuest(){
+	public void singleBeforeQuest() {
 		System.out.println("Single before Quest! La-la-la!");
 	}
-	public void singleAfterQuest(){
+
+	public void singleAfterQuest() {
 		System.out.println("Single after Quest! Ta-ta-ta!");
 	}
+	
 }

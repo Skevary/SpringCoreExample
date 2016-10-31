@@ -15,4 +15,5 @@ public class QuestException extends Exception {
 	public QuestException(Throwable cause) {
 		super(cause);
 	}
+
 }
