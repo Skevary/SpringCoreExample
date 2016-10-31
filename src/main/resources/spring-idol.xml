@@ -13,9 +13,11 @@
 
 <bean id="ticket" class="springIdol.Ticket" scope="prototype" />
 
-<bean id="duke" class="springIdol.Juggler" />
+<bean id="newLine" class="springIdol.NewLine" />
 
-<bean id="poeticMax" class="springIdol.PoeticJuggler">
+<bean id="duke" class="springIdol.Juggler"/>
+
+<bean id="max" class="springIdol.PoeticJuggler">
 	<constructor-arg value="15"/>
 	<constructor-arg ref="sonnet29" />
 </bean>
@@ -23,7 +25,6 @@
 <bean id="kenny" class="springIdol.Instrumentalist" 
 	p:song="Jingle Bells" p:instrument-ref="piano" />
 	
-<!-- List allows replays -->
 <bean id="hank" class="springIdol.OneManBand">
 	<property name="instruments">
 		<set>
@@ -53,9 +54,12 @@
 </bean>	
 
 <bean id="carl" class="springIdol.Instrumentalist">
+
+	<property name="song" value="Ital Tek - Vacuum I"/>
+	<property name="instrument" ref="guitar"/>
+	<!--
 	<property name="song" value="#{kenny.song ?: 'Greensleeves'}"/>
 	<property name="instrument" value="#{kenny.getSong()=='Jingle Bells'?piano:saxophone}"/>
-	<!--
 	<property name="song" value="#{kenny.song}" /> 
 	<property name="instrument" value="#{songSelector.selectSong()=='Jingle Bells'?piano:saxophone}"/>
 	<property name="song" value="#{songSelector.selectSong()?.toUpperCase()}"/>
@@ -69,5 +73,13 @@
 <bean id="piano" class="springIdol.Piano" />
 
 <bean id="sonnet29" class="springIdol.Sonnet29"/>
+
+<aop:config>
+	<aop:aspect ref="newLine">
+		<aop:pointcut id="perform" expression="execution(* *.perform(..))"/>
+		<aop:before pointcut-ref="perform" method="singleBeforePerform"/>
+		<aop:after pointcut-ref="perform" method="singleAfterPerform"/>
+	</aop:aspect>
+</aop:config>
 
 </beans>
