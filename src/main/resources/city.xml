@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+
+<util:list id="citiesList">
+	<bean class="cities.City" p:name="Chicago" p:state="IL" p:population="2853114"/>
+	<bean class="cities.City" p:name="Atlanta" p:state="GA" p:population="537958"/>
+ 	<bean class="cities.City" p:name="Dallas" p:state="TX" p:population="1279910"/>
+ 	<bean class="cities.City" p:name="Houston" p:state="TX" p:population="2242193"/>
+ 	<bean class="cities.City" p:name="Odessa" p:state="TX" p:population="90943"/>
+ 	<bean class="cities.City" p:name="El Paso" p:state="TX" p:population="613190"/>
+ 	<bean class="cities.City" p:name="Jal" p:state="NM" p:population="1996"/>
+ 	<bean class="cities.City" p:name="Las Cruces" p:state="NM" p:population="91865"/>
+</util:list>
+
+<!--  
+<util:map id="citiesExampleMap">
+	<entry key="Chicago"><bean class="cities.City" p:name="Chicago" p:state="IL" p:population="2853114"/></entry>
+	<entry key="Atlanta"><bean class="cities.City" p:name="Atlanta" p:state="GA" p:population="537958"/></entry>
+</util:map>
+-->
+
+<util:map id="cityMap">
+	<entry key="ChosenCityIndex2" value="#{citiesList[2]}" />
+	<entry key="ChosenCityRandom" value="#{citiesList[T(java.lang.Math).random() * citiesList.size()]}"/>
+	<entry key="ChosenFPopulationCity" value="#{citiesList.^[population gt 100000]}"/>
+	<entry key="ChosenLPopulationCity" value="#{citiesList.$[population gt 100000]}"/>
+	<!--  Get util:map-element width key
+	<entry key="ChosenCityGetKeyMap" value="#{citiesExampleMap['Atlanta']}"/>
+	-->
+</util:map>
+
+<bean id="cities" class="cities.CitiesInstances">
+	<property name="citiesMap" ref="cityMap"/>
+	<property name="citiesArrayList" value="#{citiesList.?[population gt 100000]}" />
+	<property name="сitiesArrayListNames" value="#{citiesList.?[population gt 100000].![name + ', ' + state]}" />
+</bean>
+
+</beans>

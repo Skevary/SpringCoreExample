@@ -9,6 +9,7 @@
 	<configs>
 		<config>src/main/resources/knights.xml</config>
 		<config>src/main/resources/spring-idol.xml</config>
+		<config>src/main/resources/city.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
