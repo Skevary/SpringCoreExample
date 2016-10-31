@@ -1,6 +1,7 @@
 package springIdol;
 
 public class Juggler implements Performer {
+
 	private int beanBags = 3;
 
 	public Juggler() {

@@ -2,16 +2,16 @@ package springIdol;
 
 public class Instrumentalist implements Performer {
 
+	private String song;
+	private Instrument instrument;
+	
 	public Instrumentalist() {
-
 	}
 
 	public void perform() throws PerformanceException {
 		System.out.println("Playing " + song + " : ");
 		instrument.play();
 	}
-
-	private String song;
 
 	public void setSong(String song) {
 		this.song = song;
@@ -21,15 +21,8 @@ public class Instrumentalist implements Performer {
 		return song;
 	}
 
-	public String screamSong() {
-		return song;
-	}
-
-	private Instrument instrument;
-
 	public void setInstrument(Instrument instrument) {
 		this.instrument = instrument;
 
 	}
-
 }

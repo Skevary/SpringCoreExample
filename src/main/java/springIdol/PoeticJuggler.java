@@ -1,7 +1,8 @@
 package springIdol;
 
 public class PoeticJuggler extends Juggler {
-	Poem poem;
+	
+	private Poem poem;
 
 	public PoeticJuggler(Poem poem) {
 		super();

@@ -2,7 +2,7 @@ package springIdol;
 
 /* This's Singleton class */
 public class Stage {
-	
+
 	private Stage() {
 	}
 
@@ -13,4 +13,5 @@ public class Stage {
 	public static Stage getInstance() {
 		return StageSingletonHolder.instance;
 	}
+
 }

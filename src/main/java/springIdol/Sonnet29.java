@@ -1,6 +1,7 @@
 package springIdol;
 
 public class Sonnet29 implements Poem {
+	
 	private static String[] LINES ={
 			 "Когда в раздоре с миром и судьбой,",
 			 "Припомнив годы, полные невзгод,",
