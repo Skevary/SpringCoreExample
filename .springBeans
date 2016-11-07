@@ -11,6 +11,7 @@
 		<config>src/main/resources/spring-idol.xml</config>
 		<config>src/main/resources/city.xml</config>
 		<config>src/main/resources/prop-editor.xml</config>
+		<config>src/main/resources/postprocessor.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

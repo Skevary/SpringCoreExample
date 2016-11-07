@@ -3,10 +3,10 @@ package propeditor;
 import java.beans.PropertyEditorSupport;
 
 public class PhoneEditor extends PropertyEditorSupport {
-	
+
 	public PhoneEditor() {
 	}
-	
+
 	@Override
 	public void setAsText(String textValue) {
 		String stripped = stripNonNumeric(textValue);

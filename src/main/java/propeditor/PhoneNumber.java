@@ -13,9 +13,9 @@ public class PhoneNumber {
 		this.prefix = prefix;
 		this.number = number;
 	}
-	
-	 public void printNumber(){
-		 System.out.println("("+areaCode+")-"+prefix+"-"+number+";");
-	 }
+
+	public void printNumber() {
+		System.out.println("(" + areaCode + ")-" + prefix + "-" + number + ";");
+	}
 
 }

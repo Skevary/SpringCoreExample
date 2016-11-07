@@ -7,7 +7,7 @@ public class PhoneNumberEditorRegistrar implements PropertyEditorRegistrar {
 
 	@Override
 	public void registerCustomEditors(PropertyEditorRegistry registry) {
-		registry.registerCustomEditor(PhoneNumber.class ,new PhoneEditor());
+		registry.registerCustomEditor(PhoneNumber.class, new PhoneEditor());
 	}
 
 }
