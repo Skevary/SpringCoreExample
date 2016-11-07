@@ -3,6 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
 
@@ -13,17 +14,20 @@
 
 <bean id="ticket" class="springIdol.Ticket" scope="prototype" />
 
-<bean id="newLine" class="springIdol.NewLine" />
+<bean id="sonnet29" class="springIdol.Sonnet29"/>
 
-<bean id="duke" class="springIdol.Juggler"/>
-
-<bean id="max" class="springIdol.PoeticJuggler">
-	<constructor-arg value="15"/>
-	<constructor-arg ref="sonnet29" />
+<bean id="magicBox" class="springIdol.MagicBoxImpl">
+<replaced-method name="getContents" replacer="tigerReplacer"/>
 </bean>
 
-<bean id="kenny" class="springIdol.Instrumentalist" 
-	p:song="Jingle Bells" p:instrument-ref="piano" />
+<bean id="tigerReplacer" class="springIdol.TigerReplacer"/>
+
+<!-- Performers -->
+<bean id="duke" class="springIdol.Juggler" />
+
+<bean id="max" class="springIdol.PoeticJuggler" c:beanBags="15" c:poem-ref="sonnet29" />
+
+<bean id="kenny" class="springIdol.Instrumentalist" p:song-ref="songAdventureTime" p:instrument-ref="piano" />
 	
 <bean id="hank" class="springIdol.OneManBand">
 	<property name="instruments">
@@ -43,36 +47,36 @@
 			<entry key="SAXOPHONE" value-ref="saxophone"/>
 			<entry key="PIANO" value-ref="piano"/>
 		</map>
-		<!--  
-		<props>
-			<prop key="GUITAR">STRUM STRUM STRUM</prop>
- 			<prop key="SAXOPHONE">CRASH CRASH CRASH</prop>
- 			<prop key="PIANO">HUM HUM HUM</prop>
-		</props>
-		 -->
 	</property>
 </bean>	
 
-<bean id="carl" class="springIdol.Instrumentalist">
+<bean id="carl" class="springIdol.Instrumentalist" 
+	p:song-ref="songRobotsInMotion"
+	p:instrument-ref="saxophone"/>
 
-	<property name="song" value="Ital Tek - Vacuum I"/>
-	<property name="instrument" ref="guitar"/>
-	<!--
-	<property name="song" value="#{kenny.song ?: 'Greensleeves'}"/>
-	<property name="instrument" value="#{kenny.getSong()=='Jingle Bells'?piano:saxophone}"/>
-	<property name="song" value="#{kenny.song}" /> 
-	<property name="instrument" value="#{songSelector.selectSong()=='Jingle Bells'?piano:saxophone}"/>
-	<property name="song" value="#{songSelector.selectSong()?.toUpperCase()}"/>
-	-->
-</bean>
+<bean id="sam" parent="baseSaxophonist"/>
+
+<bean id="harry" class="springIdol.Magician"
+	p:magicBox-ref="magicBox" p:magicWords="Too ToT-To-Roo!"/>
+
+
+
+<!-- Abstract -->
+<bean id="baseSaxophonist" class="springIdol.Instrumentalist" abstract="true"
+	p:instrument-ref="saxophone" p:song-ref="songAdventureTime" />
 	
-<bean id="guitar" class="springIdol.Guitar"/>	
-	
-<bean id="saxophone" class="springIdol.Saxophone" />
+<!-- Songs -->
+<bean id="songJingleBells" p:song="Jingle Bells" class="springIdol.Song"/>
+<bean id="songAdventureTime" p:song="Adventure Time" class="springIdol.Song"/>
+<bean id="songRobotsInMotion" p:song="Robots In Motion" class="springIdol.Song"/>
 
-<bean id="piano" class="springIdol.Piano" />
+<!-- Instruments -->
+<bean id="guitar" p:sound="STRUM STRUM STRUM" class="springIdol.Instrument"/>	
+<bean id="saxophone" p:sound="CRASH CRASH CRASH" class="springIdol.Instrument"/>
+<bean id="piano" p:sound="HUM HUM HUM" class="springIdol.Instrument"/>
 
-<bean id="sonnet29" class="springIdol.Sonnet29"/>
+<!-- AOP -->
+<bean id="newLine" class="springIdol.NewLine" />
 
 <aop:config>
 	<aop:aspect ref="newLine">
