@@ -15,6 +15,7 @@
 
 	<bean id="number" class="propeditor.PhoneNumber" c:areaCode="777"
 		c:prefix="777" c:number="777" />
+
 	<bean id="contact" class="propeditor.Contact">
 		<property name="contact">
 			<map>

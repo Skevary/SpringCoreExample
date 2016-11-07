@@ -12,6 +12,7 @@
 		<config>src/main/resources/city.xml</config>
 		<config>src/main/resources/prop-editor.xml</config>
 		<config>src/main/resources/postprocessor.xml</config>
+		<config>src/main/resources/foo.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
