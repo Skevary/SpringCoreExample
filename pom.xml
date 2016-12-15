@@ -97,5 +97,11 @@
 			<version>1.10.19</version>
 			<scope>test</scope>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.jruby/jruby-complete -->
+		<dependency>
+			<groupId>org.jruby</groupId>
+			<artifactId>jruby-complete</artifactId>
+			<version>9.1.6.0</version>
+		</dependency>
 	</dependencies>
 </project>

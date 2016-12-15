@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:c="http://www.springframework.org/schema/c" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:lang="http://www.springframework.org/schema/lang"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	<lang:std id="limeRuby" script-source="myscripts/Lime.rb"
+		script-interfaces="scripting.Lime" />
+
+
+	<bean id="coconut" class="scripting.Coconut" p:lime-ref="limeRuby" />
+
+	<!-- <bean id="lime" class="org.springframework.scripting.jruby.JRubyScriptFactory" 
+		c:scriptInterfaces="scripting.Lime" c:scriptSourceLocator="myscripts/lime.rb" 
+		/> <bean class="org.springframework.scripting.support.ScriptFactoryPostProcessor" 
+		/> -->
+</beans>
