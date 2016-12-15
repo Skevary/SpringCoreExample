@@ -1,12 +1,12 @@
 package springIdol;
 
 public class MagicBoxImpl implements MagicBox {
-	public MagicBoxImpl() {
-	}
+    public MagicBoxImpl() {
+    }
 
-	@Override
-	public String getContents() {
-		return "A beautiful assistant";
-	}
+    @Override
+    public String getContents() {
+	return "A beautiful assistant";
+    }
 
 }

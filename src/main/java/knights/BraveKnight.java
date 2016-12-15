@@ -2,14 +2,14 @@ package knights;
 
 public class BraveKnight implements Knight {
 
-	private Quest quest;
+    private Quest quest;
 
-	public BraveKnight(Quest quest) {
-		this.quest = quest;
-	}
+    public BraveKnight(Quest quest) {
+	this.quest = quest;
+    }
 
-	public void embarkOnQuest() throws QuestException {
-		quest.embark();
-	}
+    public void embarkOnQuest() throws QuestException {
+	quest.embark();
+    }
 
 }

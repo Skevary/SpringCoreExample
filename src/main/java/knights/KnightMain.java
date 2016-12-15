@@ -5,13 +5,13 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class KnightMain {
 
-	public static void main(String[] args) throws QuestException {
+    public static void main(String[] args) throws QuestException {
 
-		@SuppressWarnings("resource")
-		ApplicationContext context = new ClassPathXmlApplicationContext("knights.xml");
-		Knight knight = (Knight) context.getBean("knight");
-		knight.embarkOnQuest();
+	@SuppressWarnings("resource")
+	ApplicationContext context = new ClassPathXmlApplicationContext("knights.xml");
+	Knight knight = (Knight) context.getBean("knight");
+	knight.embarkOnQuest();
 
-	}
+    }
 
 }
