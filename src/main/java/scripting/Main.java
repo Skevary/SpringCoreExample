@@ -9,7 +9,10 @@ public class Main {
 	@SuppressWarnings("resource")
 	ApplicationContext context = new ClassPathXmlApplicationContext("scripting.xml");
 	ScriptStarted scriptStarted = (ScriptStarted) context.getBean("scriptStarted");
+	IScriptStarted groovyCode = (IScriptStarted) context.getBean("scriptStartedGroovy");
 	scriptStarted.showScripts();
+	groovyCode.showScripts();
+	
     }
 
 }

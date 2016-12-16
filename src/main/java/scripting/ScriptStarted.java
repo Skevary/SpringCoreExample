@@ -14,16 +14,16 @@ public class ScriptStarted {
     private Script ruby;
     private Script groovy;
     private Script beanShell;
-    
+
     public void setRuby(Script ruby) {
 	this.ruby = ruby;
     }
 
     public void setGroovy(Script groovy) {
-        this.groovy = groovy;
+	this.groovy = groovy;
     }
 
     public void setBeanShell(Script beanShell) {
-        this.beanShell = beanShell;
+	this.beanShell = beanShell;
     }
 }
