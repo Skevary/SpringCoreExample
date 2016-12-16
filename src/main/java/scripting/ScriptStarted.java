@@ -1,10 +1,10 @@
 package scripting;
 
-public class Coconut {
-    public Coconut() {
+public class ScriptStarted {
+    public ScriptStarted() {
     }
 
-    public void drinkThemBothUp() {
+    public void showScripts() {
 	System.out.println("Run script...");
 	ruby.show();
 	groovy.show();

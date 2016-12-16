@@ -12,7 +12,7 @@
 
 	<lang:groovy id="groovyScript" script-source="scripting/Script.groovy" />
 
-	<bean id="coconut" class="scripting.Coconut" p:ruby-ref="rubyScript"
+	<bean id="scriptStarted" class="scripting.ScriptStarted" p:ruby-ref="rubyScript"
 		p:groovy-ref="groovyScript" />
 
 	<!-- <bean id="lime" class="org.springframework.scripting.jruby.JRubyScriptFactory" 
