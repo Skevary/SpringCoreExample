@@ -7,11 +7,13 @@
 		http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-4.3.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 
-	<lang:std id="limeRuby" script-source="myscripts/Lime.rb"
-		script-interfaces="scripting.Lime" />
+	<lang:std id="rubyScript" script-source="scripting/Script.rb"
+		script-interfaces="scripting.Script" />
 
+	<lang:groovy id="groovyScript" script-source="scripting/Script.groovy" />
 
-	<bean id="coconut" class="scripting.Coconut" p:lime-ref="limeRuby" />
+	<bean id="coconut" class="scripting.Coconut" p:ruby-ref="rubyScript"
+		p:groovy-ref="groovyScript" />
 
 	<!-- <bean id="lime" class="org.springframework.scripting.jruby.JRubyScriptFactory" 
 		c:scriptInterfaces="scripting.Lime" c:scriptSourceLocator="myscripts/lime.rb" 
