@@ -7,12 +7,12 @@
 		http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-4.3.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 
-	<lang:std id="rubyScript" script-source="scripting/Script.rb"
+	<lang:std id="rubyScript" script-source="scripting/myscript/Script.rb"
 		script-interfaces="scripting.Script" />
 
-	<lang:groovy id="groovyScript" script-source="scripting/Script.groovy" />
+	<lang:groovy id="groovyScript" script-source="scripting/myscript/Script.groovy" />
 
-	<lang:bsh id="beanShellScript" script-source="scripting/Script.bsh"
+	<lang:bsh id="beanShellScript" script-source="scripting/myscript/Script.bsh"
 		script-interfaces="scripting.Script" />
 
 	<bean id="scriptStarted" class="scripting.ScriptStarted"
