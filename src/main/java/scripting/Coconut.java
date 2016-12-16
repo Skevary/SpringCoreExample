@@ -5,15 +5,14 @@ public class Coconut {
     }
 
     public void drinkThemBothUp() {
-	System.out.println("You put the lime in the coconut...");
-	System.out.println("and drink ‘em both up...");
-	System.out.println("You put the lime in the coconut...");
-	lime.drink();
+	System.out.println("Run script...");
+	ruby.show();
     }
 
-    private Lime lime;
-
-    public void setLime(Lime lime) {
-	this.lime = lime;
+    private Script ruby;
+    
+    public void setRuby(Script ruby) {
+	this.ruby = ruby;
     }
+
 }
