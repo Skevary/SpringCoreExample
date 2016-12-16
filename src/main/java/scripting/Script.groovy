@@ -1,5 +1,5 @@
 class GroovyScript implements scripting.Script {
  void show() {
- print "This's groovy-script"
+ println "This's Groovy-script!"
  }
 }

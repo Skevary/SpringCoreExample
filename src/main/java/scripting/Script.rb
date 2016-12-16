@@ -1,6 +1,6 @@
 class RubyScript
  def show
- puts "This's ruby-script!"
+ puts "This's Ruby-script!"
  end
 end
 RubyScript.new
