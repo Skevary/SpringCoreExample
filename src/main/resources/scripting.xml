@@ -12,8 +12,11 @@
 
 	<lang:groovy id="groovyScript" script-source="scripting/Script.groovy" />
 
-	<bean id="scriptStarted" class="scripting.ScriptStarted" p:ruby-ref="rubyScript"
-		p:groovy-ref="groovyScript" />
+	<lang:bsh id="beanShellScript" script-source="scripting/Script.bsh"
+		script-interfaces="scripting.Script" />
+
+	<bean id="scriptStarted" class="scripting.ScriptStarted"
+		p:ruby-ref="rubyScript" p:groovy-ref="groovyScript" p:beanShell-ref="beanShellScript" />
 
 	<!-- <bean id="lime" class="org.springframework.scripting.jruby.JRubyScriptFactory" 
 		c:scriptInterfaces="scripting.Lime" c:scriptSourceLocator="myscripts/lime.rb" 
