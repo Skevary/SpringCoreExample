@@ -16,6 +16,10 @@ public class SpringIdolMain {
 	System.out.print("*Kenny perform*");
 	Performer instrumentalist = (Performer) ctx.getBean("kenny");
 	instrumentalist.perform();
+	
+	System.out.print("*Kenny2 perform*");
+	Performer instrumentalist2 = (Performer) ctx.getBean("kenny2");
+	instrumentalist2.perform();
 
 	System.out.print("*Jim perform*");
 	Performer oneManBand = (Performer) ctx.getBean("jim");
