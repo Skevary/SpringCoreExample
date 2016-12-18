@@ -83,22 +83,19 @@
 	<!-- AOP -->
 	<bean id="newLine" class="springIdol.NewLine" />
 	<bean id="audience" class="springIdol.Audience" />
+	
+		<aop:config>
+			<aop:pointcut id="perform"
+				expression="execution(* springIdol.Performer.perform(..))" />
+			<aop:aspect ref="newLine">
+				<aop:before pointcut-ref="perform" method="singleBeforePerform" />
+				<aop:after pointcut-ref="perform" method="singleAfterPerform" />
+			</aop:aspect>
+			<aop:aspect ref="audience">
+				<aop:around pointcut-ref="perform" method="watchPerformance" />
+			</aop:aspect>
+		</aop:config>
 
-	<aop:config>
-		<aop:pointcut id="perform"
-			expression="execution(* springIdol.Performer.perform(..))" />
-		<aop:aspect ref="newLine">
-			<aop:before pointcut-ref="perform" method="singleBeforePerform" />
-			<aop:after pointcut-ref="perform" method="singleAfterPerform" />
-		</aop:aspect>
-		<aop:aspect ref="audience">
-			<aop:before method="takeSeats" pointcut-ref="perform" />
-			<aop:before method="turnOffCellPhones" pointcut-ref="perform" />
-			<aop:after-returning method="applaud" pointcut-ref="perform" />
-			<aop:after-throwing method="demandRefund" pointcut-ref="perform" />
-		</aop:aspect>
-	</aop:config>
-
-	<!-- /AOP -->
+		<!-- /AOP -->
 
 </beans>
