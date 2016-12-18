@@ -20,27 +20,24 @@
 	<!-- /Environment -->
 	
 	<!-- Aspect -->
-	 <bean id="newLine" class="springshow.aspect.NewLine" />
+	 <bean id="entertainer" class="springshow.aspect.Entertainer" />
 	 <bean id="audience" class="springshow.aspect.Audience" />
 	 <bean id="audienceAnotation" class="springshow.aspect.AudienceAnotation" />
 	 <bean id="psychic" class="springshow.aspect.Psychic" />
 	 <bean id="volunteer" class="springshow.aspect.Volunteer" />
 	 
 	 <aop:config>
+		 <!-- 
 	 	<aop:pointcut id="perform"
 	 	 expression="execution(* springshow.performer.Performer.perform(..))" />
+	 	 -->
 	 	<aop:pointcut id="thinking"
 	 	 expression="execution(* springshow.aspect.Thinker.thinkOfSomething(String)) and args(thoughts)" />
-	 	
-	 	<aop:aspect ref="newLine">
-	 	<aop:before pointcut-ref="perform" method="singleBeforePerform" />
-	 	<aop:after pointcut-ref="perform" method="singleAfterPerform" />
-	 	</aop:aspect>
-	 	
+	 	<!--  
 	 	<aop:aspect ref="audience">
 	 	<aop:around pointcut-ref="perform" method="watchPerformance" />
 	 	</aop:aspect>
-	 	
+	 	-->
 	 	<aop:aspect ref="psychic">
 	 	<aop:before pointcut-ref="thinking" method="interceptThoughts" arg-names="thoughts" />
 	 	</aop:aspect>
@@ -48,19 +45,8 @@
 	<!-- /Aspect -->
 	
 	<!-- Performers -->
-	 <bean id="max" class="springshow.performer.PoeticJuggler" autowire="constructor" />
-	 <bean id="duke" class="springshow.performer.Juggler" />
-	 <bean id="kenny" class="springshow.performer.Instrumentalist" p:song-ref="songAdventureTime" p:instrument-ref="piano" />
-	 <bean id="kenny2" class="springshow.performer.Instrumentalist" p:song-ref="songAdventureTime" autowire="byName" />
-	 <bean id="jim" class="springshow.performer.OneManBandMap">
-	 <property name="instruments">
-	 	<map>
-	 		<entry key="GUITAR" value-ref="guitar" />
-	 		<entry key="SAXOPHONE" value-ref="saxophone" />
-	 		<entry key="PIANO" value-ref="piano" />
-	 	</map>
-	 </property>
-	 </bean>
+	 <bean id="max" class="springshow.performer.PoeticJuggler" autowire="constructor"/>
+	 <bean id="kenny" class="springshow.performer.Instrumentalist" p:song-ref="songAdventureTime" autowire="byName"/>
 	 <bean id="hank" class="springshow.performer.OneManBand">
 	 <property name="instruments">
 	 	<set>
@@ -71,11 +57,11 @@
 	 	</set>
 	 </property>
 	 </bean>
-	 <bean id="carl" class="springshow.performer.Instrumentalist" p:song-ref="songRobotsInMotion" p:instrument-ref="saxophone" />
-	 <bean id="harry" class="springshow.performer.Magician" p:magicBox-ref="magicBox" p:magicWords="Too ToT-To-Roo!" />
+	 <bean id="carl" class="springshow.performer.Instrumentalist" p:song-ref="songRobotsInMotion" p:instrument-ref="saxophone"/>
+	 <bean id="harry" class="springshow.performer.Magician" p:magicBox-ref="magicBox" p:magicWords="Too ToT-To-Roo!"/>
 	 <!-- Abstract -->
 	 <bean id="baseSaxophonist" class="springshow.performer.Instrumentalist" abstract="true" p:instrument-ref="saxophone" p:song-ref="songAdventureTime" />
-	 <bean id="sam" parent="baseSaxophonist" />
+	 <bean id="sam" parent="baseSaxophonist"/>
 	 
 		<!-- Props -->
 		 <bean id="sonnet29" class="springshow.performer.props.Sonnet29" />
@@ -88,10 +74,10 @@
 		 <bean id="songAdventureTime" p:song="Adventure Time" class="springshow.performer.props.Song" />
 		 <bean id="songRobotsInMotion" p:song="Robots In Motion" class="springshow.performer.props.Song" />
 		 <!-- Instruments -->
-		 <bean id="guitar" p:sound="STRUM STRUM STRUM" class="springshow.performer.props.Instrument" />
-		 <bean id="saxophone" p:sound="CRASH CRASH CRASH" class="springshow.performer.props.Instrument" />
-		 <bean id="instrument" p:sound="CRASH CRASH CRASH" class="springshow.performer.props.Instrument" />
-		 <bean id="piano" p:sound="HUM HUM HUM" class="springshow.performer.props.Instrument" />
+		 <bean id="guitar" p:sound="[guitar] STRUM STRUM STRUM" class="springshow.performer.props.Instrument" />
+		 <bean id="saxophone" p:sound="[saxophone] CRASH CRASH CRASH" class="springshow.performer.props.Instrument" />
+		 <bean id="instrument" p:sound="[instrument] CRASH CRASH CRASH" class="springshow.performer.props.Instrument" />
+		 <bean id="piano" p:sound="[piano] HUM HUM HUM" class="springshow.performer.props.Instrument" />
 		<!-- /Props -->
 	<!-- /Performers -->
 

@@ -8,28 +8,24 @@ import springshow.performer.Performer;
 
 public class SpringShowMain {
     public static void main(String[] args) throws PerformanceException {
-
 	ApplicationContext ctx = new ClassPathXmlApplicationContext("springshow.xml");
 
-	System.out.print("*Max perform*");
-	Performer poeticJuggler = (Performer) ctx.getBean("max");
-	poeticJuggler.perform();
-
-	System.out.print("*Kenny perform*");
-	Performer instrumentalist = (Performer) ctx.getBean("kenny");
-	instrumentalist.perform();
+	Performer performer1 = (Performer) ctx.getBean("max");
+	Performer performer2 = (Performer) ctx.getBean("kenny");
+	Performer performer3 = (Performer) ctx.getBean("hank");
+	Performer performer4 = (Performer) ctx.getBean("carl");
+	Performer performer5 = (Performer) ctx.getBean("harry");
 	
-	System.out.print("*Kenny2 perform*");
-	Performer instrumentalist2 = (Performer) ctx.getBean("kenny2");
-	instrumentalist2.perform();
-
-	System.out.print("*Jim perform*");
-	Performer oneManBand = (Performer) ctx.getBean("jim");
-	oneManBand.perform();
-
-	System.out.print("*Harry perform*");
-	Performer magican = (Performer) ctx.getBean("harry");
-	magican.perform();
+	performer1.setName("Max");
+	performer1.perform();
+	performer2.setName("Kenny");
+	performer2.perform();
+	performer3.setName("Hank");
+	performer3.perform();
+	performer4.setName("Carl");
+	performer4.perform();
+	performer5.setName("Harry");
+	performer5.perform();
 
 	((AbstractApplicationContext) ctx).close();
 

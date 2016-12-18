@@ -4,7 +4,6 @@ import springshow.PerformanceException;
 import springshow.performer.props.Poem;
 
 public class PoeticJuggler extends Juggler {
-
     private Poem poem;
 
     public PoeticJuggler(Poem poem) {

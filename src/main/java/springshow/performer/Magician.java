@@ -4,13 +4,13 @@ import springshow.PerformanceException;
 import springshow.performer.props.MagicBox;
 
 public class Magician implements Performer {
+    private String name;
     private String magicWords;
     private MagicBox magicBox;
 
     public Magician() {
     }
 
-    @Override
     public void perform() throws PerformanceException {
 	System.out.println(magicWords);
 	System.out.println("The magic box contains...");
@@ -23,5 +23,9 @@ public class Magician implements Performer {
 
     public void setMagicBox(MagicBox magicBox) {
 	this.magicBox = magicBox;
+    }
+
+    public void setName(String name) {
+	this.name = name;
     }
 }
