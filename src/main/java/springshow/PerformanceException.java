@@ -1,4 +1,4 @@
-package springIdol;
+package springshow;
 
 public class PerformanceException extends Exception {
 

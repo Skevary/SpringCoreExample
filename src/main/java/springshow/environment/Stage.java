@@ -1,4 +1,4 @@
-package springIdol;
+package springshow.environment;
 
 /* This's Singleton class */
 public class Stage {

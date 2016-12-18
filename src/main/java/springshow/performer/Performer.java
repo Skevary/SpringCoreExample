@@ -1,4 +1,6 @@
-package springIdol;
+package springshow.performer;
+
+import springshow.PerformanceException;
 
 public interface Performer {
 

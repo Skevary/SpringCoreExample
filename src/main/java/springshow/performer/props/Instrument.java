@@ -1,4 +1,4 @@
-package springIdol;
+package springshow.performer.props;
 
 public class Instrument {
     private String sound;

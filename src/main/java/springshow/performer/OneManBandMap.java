@@ -1,6 +1,9 @@
-package springIdol;
+package springshow.performer;
 
 import java.util.Map;
+
+import springshow.PerformanceException;
+import springshow.performer.props.Instrument;
 
 public class OneManBandMap implements Performer {
 

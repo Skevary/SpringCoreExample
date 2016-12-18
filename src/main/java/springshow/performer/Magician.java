@@ -1,4 +1,7 @@
-package springIdol;
+package springshow.performer;
+
+import springshow.PerformanceException;
+import springshow.performer.props.MagicBox;
 
 public class Magician implements Performer {
     private String magicWords;

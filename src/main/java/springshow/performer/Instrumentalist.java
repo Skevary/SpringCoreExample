@@ -1,4 +1,8 @@
-package springIdol;
+package springshow.performer;
+
+import springshow.PerformanceException;
+import springshow.performer.props.Instrument;
+import springshow.performer.props.Song;
 
 public class Instrumentalist implements Performer {
 

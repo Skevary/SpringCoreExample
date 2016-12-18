@@ -1,4 +1,4 @@
-package springIdol;
+package springshow.performer.props;
 
 import java.lang.reflect.Method;
 

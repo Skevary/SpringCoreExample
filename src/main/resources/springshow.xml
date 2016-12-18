@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+		
+	<context:component-scan base-package="springidol" />	
+	<aop:aspectj-autoproxy  />
+	
+	<!-- Environment -->
+	 <bean id="auditorium" class="springshow.environment.Auditorium"
+	  init-method="turnOnLights" destroy-method="turnOffLights" />
+	 <bean id="theStage" class="springshow.environment.Stage" factory-method="getInstance" />
+	 <bean id="ticket" class="springshow.environment.Ticket" scope="prototype" />
+	<!-- /Environment -->
+	
+	<!-- Aspect -->
+	 <bean id="newLine" class="springshow.aspect.NewLine" />
+	 <bean id="audience" class="springshow.aspect.Audience" />
+	 <bean id="audienceAnotation" class="springshow.aspect.AudienceAnotation" />
+	 <bean id="psychic" class="springshow.aspect.Psychic" />
+	 <bean id="volunteer" class="springshow.aspect.Volunteer" />
+	 
+	 <aop:config>
+	 	<aop:pointcut id="perform"
+	 	 expression="execution(* springshow.performer.Performer.perform(..))" />
+	 	<aop:pointcut id="thinking"
+	 	 expression="execution(* springshow.aspect.Thinker.thinkOfSomething(String)) and args(thoughts)" />
+	 	
+	 	<aop:aspect ref="newLine">
+	 	<aop:before pointcut-ref="perform" method="singleBeforePerform" />
+	 	<aop:after pointcut-ref="perform" method="singleAfterPerform" />
+	 	</aop:aspect>
+	 	
+	 	<aop:aspect ref="audience">
+	 	<aop:around pointcut-ref="perform" method="watchPerformance" />
+	 	</aop:aspect>
+	 	
+	 	<aop:aspect ref="psychic">
+	 	<aop:before pointcut-ref="thinking" method="interceptThoughts" arg-names="thoughts" />
+	 	</aop:aspect>
+	 </aop:config>
+	<!-- /Aspect -->
+	
+	<!-- Performers -->
+	 <bean id="max" class="springshow.performer.PoeticJuggler" autowire="constructor" />
+	 <bean id="duke" class="springshow.performer.Juggler" />
+	 <bean id="kenny" class="springshow.performer.Instrumentalist" p:song-ref="songAdventureTime" p:instrument-ref="piano" />
+	 <bean id="kenny2" class="springshow.performer.Instrumentalist" p:song-ref="songAdventureTime" autowire="byName" />
+	 <bean id="jim" class="springshow.performer.OneManBandMap">
+	 <property name="instruments">
+	 	<map>
+	 		<entry key="GUITAR" value-ref="guitar" />
+	 		<entry key="SAXOPHONE" value-ref="saxophone" />
+	 		<entry key="PIANO" value-ref="piano" />
+	 	</map>
+	 </property>
+	 </bean>
+	 <bean id="hank" class="springshow.performer.OneManBand">
+	 <property name="instruments">
+	 	<set>
+	 		<ref bean="guitar" />
+	 		<ref bean="saxophone" />
+	 		<ref bean="piano" />
+	 		<ref bean="guitar" />
+	 	</set>
+	 </property>
+	 </bean>
+	 <bean id="carl" class="springshow.performer.Instrumentalist" p:song-ref="songRobotsInMotion" p:instrument-ref="saxophone" />
+	 <bean id="harry" class="springshow.performer.Magician" p:magicBox-ref="magicBox" p:magicWords="Too ToT-To-Roo!" />
+	 <!-- Abstract -->
+	 <bean id="baseSaxophonist" class="springshow.performer.Instrumentalist" abstract="true" p:instrument-ref="saxophone" p:song-ref="songAdventureTime" />
+	 <bean id="sam" parent="baseSaxophonist" />
+	 
+		<!-- Props -->
+		 <bean id="sonnet29" class="springshow.performer.props.Sonnet29" />
+		 <bean id="tigerReplacer" class="springshow.performer.props.TigerReplacer" />
+		 <bean id="magicBox" class="springshow.performer.props.MagicBoxImpl">
+		 	<replaced-method name="getContents" replacer="tigerReplacer" />
+		 </bean>
+		 <!-- Songs -->
+		 <bean id="songJingleBells" p:song="Jingle Bells" class="springshow.performer.props.Song" />
+		 <bean id="songAdventureTime" p:song="Adventure Time" class="springshow.performer.props.Song" />
+		 <bean id="songRobotsInMotion" p:song="Robots In Motion" class="springshow.performer.props.Song" />
+		 <!-- Instruments -->
+		 <bean id="guitar" p:sound="STRUM STRUM STRUM" class="springshow.performer.props.Instrument" />
+		 <bean id="saxophone" p:sound="CRASH CRASH CRASH" class="springshow.performer.props.Instrument" />
+		 <bean id="instrument" p:sound="CRASH CRASH CRASH" class="springshow.performer.props.Instrument" />
+		 <bean id="piano" p:sound="HUM HUM HUM" class="springshow.performer.props.Instrument" />
+		<!-- /Props -->
+	<!-- /Performers -->
+
+</beans>

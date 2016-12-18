@@ -1,4 +1,4 @@
-package springIdol;
+package springshow.aspect;
 
 public interface MindReader {
     void interceptThoughts(String thoughts);

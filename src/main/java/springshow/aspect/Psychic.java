@@ -1,4 +1,4 @@
-package springIdol;
+package springshow.aspect;
 
 public class Psychic implements MindReader {
     private String thoughts;

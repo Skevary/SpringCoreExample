@@ -1,13 +1,15 @@
-package springIdol;
+package springshow;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class SpringIdolMain {
+import springshow.performer.Performer;
+
+public class SpringShowMain {
     public static void main(String[] args) throws PerformanceException {
 
-	ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-idol.xml");
+	ApplicationContext ctx = new ClassPathXmlApplicationContext("springshow.xml");
 
 	System.out.print("*Max perform*");
 	Performer poeticJuggler = (Performer) ctx.getBean("max");

@@ -1,4 +1,4 @@
-package springIdol;
+package springshow.environment;
 
 public class Auditorium {
 

@@ -8,12 +8,12 @@
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
 		<config>src/main/resources/knights.xml</config>
-		<config>src/main/resources/spring-idol.xml</config>
 		<config>src/main/resources/city.xml</config>
 		<config>src/main/resources/prop-editor.xml</config>
 		<config>src/main/resources/postprocessor.xml</config>
 		<config>src/main/resources/foo.xml</config>
 		<config>src/main/resources/scripting.xml</config>
+		<config>src/main/resources/springshow.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

@@ -6,8 +6,11 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import springshow.aspect.MindReader;
+import springshow.aspect.Thinker;
+
 public class MindReaderTest {
-    ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-idol.xml");
+    ApplicationContext ctx = new ClassPathXmlApplicationContext("springshow.xml");
     MindReader psychic = (MindReader) ctx.getBean("psychic");
     Thinker volunteer = (Thinker) ctx.getBean("volunteer");
 

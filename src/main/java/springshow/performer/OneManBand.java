@@ -1,6 +1,9 @@
-package springIdol;
+package springshow.performer;
 
 import java.util.Collection;
+
+import springshow.PerformanceException;
+import springshow.performer.props.Instrument;
 
 public class OneManBand implements Performer {
 

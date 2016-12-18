@@ -1,4 +1,4 @@
-package springIdol;
+package springshow.performer.props;
 
 public class Sonnet29 implements Poem {
 	
