@@ -62,7 +62,8 @@
 
 	<bean id="harry" class="springIdol.Magician" p:magicBox-ref="magicBox"
 		p:magicWords="Too ToT-To-Roo!" />
-
+	
+	<bean id="volunteer" class="springIdol.Volunteer" />
 
 
 	<!-- Abstract -->
@@ -83,19 +84,26 @@
 	<!-- AOP -->
 	<bean id="newLine" class="springIdol.NewLine" />
 	<bean id="audience" class="springIdol.Audience" />
-	
-		<aop:config>
-			<aop:pointcut id="perform"
-				expression="execution(* springIdol.Performer.perform(..))" />
-			<aop:aspect ref="newLine">
-				<aop:before pointcut-ref="perform" method="singleBeforePerform" />
-				<aop:after pointcut-ref="perform" method="singleAfterPerform" />
-			</aop:aspect>
-			<aop:aspect ref="audience">
-				<aop:around pointcut-ref="perform" method="watchPerformance" />
-			</aop:aspect>
-		</aop:config>
+	<bean id="psychic" class="springIdol.Psychic" />
 
-		<!-- /AOP -->
+	<aop:config>
+		<aop:pointcut id="perform"
+			expression="execution(* springIdol.Performer.perform(..))" />
+		<aop:aspect ref="newLine">
+			<aop:before pointcut-ref="perform" method="singleBeforePerform" />
+			<aop:after pointcut-ref="perform" method="singleAfterPerform" />
+		</aop:aspect>
+		<aop:aspect ref="audience">
+			<aop:around pointcut-ref="perform" method="watchPerformance" />
+		</aop:aspect>
+		<aop:aspect ref="psychic">
+			<aop:pointcut id="thinking"
+				expression="execution(* springIdol.Thinker.thinkOfSomething(String)) and args(thoughts)" />
+			<aop:before pointcut-ref="thinking" method="interceptThoughts"
+				arg-names="thoughts" />
+		</aop:aspect>
+	</aop:config>
+
+	<!-- /AOP -->
 
 </beans>
