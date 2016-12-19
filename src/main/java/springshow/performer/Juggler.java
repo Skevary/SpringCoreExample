@@ -20,4 +20,8 @@ public class Juggler implements Performer {
     public void setName(String name) {
 	this.name = name;
     }
+
+    protected int getBeanBags() {
+        return beanBags;
+    }
 }

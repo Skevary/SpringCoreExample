@@ -25,6 +25,9 @@
 	 <bean id="audienceAnotation" class="springshow.aspect.AudienceAnotation" />
 	 <bean id="psychic" class="springshow.aspect.Psychic" />
 	 <bean id="volunteer" class="springshow.aspect.Volunteer" />
+	 <bean class="springshow.aspect.JudgeAspect" factory-method="aspectOf">
+ 		<property name="criticismEngine" ref="criticismEngine" />
+	 </bean>
 	 
 	 <aop:config>
 		 <!-- 
@@ -45,7 +48,7 @@
 	<!-- /Aspect -->
 	
 	<!-- Performers -->
-	 <bean id="max" class="springshow.performer.PoeticJuggler" autowire="constructor"/>
+	 <bean id="max" class="springshow.performer.PoeticJuggler" autowire="constructor" c:beanBags="13"/>
 	 <bean id="kenny" class="springshow.performer.Instrumentalist" p:song-ref="songAdventureTime" autowire="byName"/>
 	 <bean id="hank" class="springshow.performer.OneManBand">
 	 <property name="instruments">
@@ -80,5 +83,14 @@
 		 <bean id="piano" p:sound="[piano] HUM HUM HUM" class="springshow.performer.props.Instrument" />
 		<!-- /Props -->
 	<!-- /Performers -->
+	<bean id="criticismEngine" class="springshow.aspect.CriticismEngineImpl">
+ 		<property name="criticismPool">
+		 <list>
+		 <value>[Judge say:] I’m not being rude, but that was appalling.</value>
+		 <value>[Judge say:] You may be the least talented person in this show.</value>
+		 <value>[Judge say:] Do everyone a favor and keep your day job.</value>
+		 </list>
+ 		</property>
+	</bean>
 
 </beans>

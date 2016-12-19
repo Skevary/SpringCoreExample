@@ -18,7 +18,7 @@ public class PoeticJuggler extends Juggler {
 
     @Override
     public void perform() throws PerformanceException {
-	super.perform();
+	System.out.println("JUGGLIMG " + getBeanBags() + " BEANBAGS");
 	System.out.println("While reciting...");
 	poem.recite();
     }
