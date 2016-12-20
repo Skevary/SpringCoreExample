@@ -25,7 +25,6 @@ public class AudienceAnotation {
 	    long end = System.currentTimeMillis();
 	    System.out.println("[The audience applauded] *CLAP CLAP CLAP CLAP CLAP*");
 	    System.out.println("[The performance took] " + (end - start) + " milliseconds.");
-	    System.out.println();
 	} catch (Throwable t) {
 	    System.out.println("[Something went wrong] Boo! We want our money back!");
 	}

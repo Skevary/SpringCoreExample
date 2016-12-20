@@ -7,6 +7,7 @@ public class Auditorium {
     }
 
     public void turnOffLights() {
+	System.out.println();
 	System.out.println("[Destroy-method] Turn Off Lights");
     }
 
